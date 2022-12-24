@@ -29,13 +29,15 @@ app.get('/getData', (req, res) => {
     res.send(projectData)
 })
 
-app.post('postData', (req, res) => {
+const data = []
+app.post('/addTempData', (req, res) => {
     const newData = {
         temperature: req.body.temp,
         data: req.body.data,
         userResponse: req.body.userResponse
     }
-    projectData.push(newData);
+    data.push(newData);
+    console.log(data);
 })
 
 
