@@ -29,15 +29,17 @@ app.get('/getData', (req, res) => {
     res.send(projectData)
 })
 
+
+// Post route save req data in data array
 const data = []
 app.post('/addTempData', (req, res) => {
     const newData = {
-        temperature: req.body.temp,
-        data: req.body.data,
+        temperature: req.body.temperature,
+        data: req.body.date,
         userResponse: req.body.userResponse
     }
     data.push(newData);
-    console.log(data);
+    console.log(req.body);
 })
 
 
