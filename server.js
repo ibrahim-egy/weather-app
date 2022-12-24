@@ -24,6 +24,19 @@ app.get('/', (req, res)=> {
     res.render('index.html')
 })
 
+// Get route that returns projectData object
+app.get('/getData', (req, res) => {
+    res.send(projectData)
+})
+
+app.post('postData', (req, res) => {
+    const newData = {
+        temperature: req.body.temp,
+        data: req.body.data,
+        userResponse: req.body.userResponse
+    }
+    projectData.push(newData);
+})
 
 
 const PORT = 3000
