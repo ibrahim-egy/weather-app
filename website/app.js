@@ -9,32 +9,56 @@ let newDate = d.getMonth() + '.' + d.getDate() + '.' + d.getFullYear();
 
 // Get generate button and adding event listener to handle click
 const generate = document.getElementById('generate');
-generate.addEventListener('click', preform)
+generate.addEventListener('click', preformAction)
 
 
 // Handel function which get the user zip code then calls getData function
-function preform() {
+function preformAction() {
     const zipCode = document.getElementById('zip').value;
-    const userResponse = document.getElementById('feelings').value
-    getData(baseUrl, zipCode, appKey)
+    const userFeelings = document.getElementById('feelings').value
+    getWeatherData(baseUrl, zipCode, appKey)
         .then(data => {
             console.log(data);
 
             // post request to /addTempData route with data object {}
-            // 1- temp info from api
-            // 2- live date
-            // 3- and the userResponse => feelings textArea
+            // 1- Temp info from api
+            // 2- Live date
+            // 3- And the userResponse => feelings textArea
             postData('/addTempData', {
                 temperature: data.main.temp,
                 date: newDate,
-                userResponse: userResponse
+                feelings: userFeelings
             })
+                .then(
+
+                    // Calling UpdateUI function after post request
+                    updateUI()
+                )
         })
+
 }
 
-// getData function which triggers a GET request to opeWeatherMap api
+
+// UpdateUI function fetching data from server then display it in index.html
+const updateUI = async () => {
+
+    const response = await fetch('/getAllData')
+    const info = await response.json();
+    try {
+        document.getElementById('temp').innerHTML = Math.round(info.temperature)+ ' degrees';
+        document.getElementById('content').innerHTML = info.feelings;
+        document.getElementById('date').innerHTML = info.date;
+    }
+    catch (error) {
+        console.log(`error: ${error}`);
+    }
+
+}
+
+
+// getWeatherData function which triggers a GET request to opeWeatherMap api
 // get data according to user zipCode
-const getData = async (url, zip, appid) => {
+const getWeatherData = async (url, zip, appid) => {
     const response = await fetch(url = `${url}?zip=${zip}&appid=${appid}`)
     try {
         const data = await response.json();

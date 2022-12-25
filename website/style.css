@@ -13,10 +13,12 @@ body{
 
 #app{
     display: grid;
-    grid-auto-rows: minmax(150px, auto);
+    grid-auto-rows: minmax(0px, auto);
     /* grid-template-columns:  */
     height:100vh;
-    background: #f23557;
+    background-image: 
+        linear-gradient(to bottom left, rgba(96, 172, 175, .7) , rgba(96, 172, 175, .8)), 
+        url('https://www.pngkey.com/png/detail/52-524681_weather-48-icons-sun-icon-transparent-background.png');
     color: #f0d43a;
     justify-content: center;
     grid-gap: 1em;
@@ -30,6 +32,8 @@ body{
 
 .entry{
     background: rgba(59, 74, 107, .4);
+    border-radius: 10px;
+    padding: 1em;
 }
 
 #entryHolder{
@@ -65,11 +69,13 @@ input{
     display:block;
     height: 60px;
     width: 320px;
-    background:#22b2da;
+    background:#CBEDD5;
     color: #f0d43a;
     font-size: 20px;
     font-family: 'Oswald', sans-serif;
     border: none;
+    border-radius: 10px;
+    padding: 1em;
 }
 
 button{
@@ -81,16 +87,19 @@ button{
     font-family: 'Oswald', sans-serif;
     border: none;
     box-shadow: 2px 4px 5px #444;
+    border-radius: 10px;
 }
 h1{
     font-size: 36px;
 }
 
 textarea{
-    background:#22b2da;
+    background:#CBEDD5;
     color: #f0d43a;
     font-size: 20px;
     font-family: 'Oswald', sans-serif;
+    border-radius: 10px;
+    padding: 1em;
 }
 /* Reset style for HTML element on active to have no border*/
 input:focus,

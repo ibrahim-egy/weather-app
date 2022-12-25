@@ -20,31 +20,35 @@ app.use(express.static('website'));
 // Setup Server
 
 // Get request to render index page
+// For testing
 app.get('/', (req, res)=> {
     res.render('index.html')
 })
 
 // Get route that returns projectData object
-app.get('/getData', (req, res) => {
+app.get('/getAllData', (req, res) => {
     res.send(projectData)
+    console.log(`projectData: ${projectData}`);
 })
 
 
-// Post route save req data in data array
-const data = []
+// Post route save req.body in data array
 app.post('/addTempData', (req, res) => {
-    const newData = {
+    const newEntry = {
         temperature: req.body.temperature,
-        data: req.body.date,
-        userResponse: req.body.userResponse
+        date: req.body.date,
+        feelings: req.body.feelings
     }
-    data.push(newData);
-    console.log(req.body);
+    projectData = newEntry;
+    console.log(newEntry);
+    return newEntry;
 })
 
 
+// Server setup
+// Listening on port 3000
 const PORT = 3000
 
 app.listen(PORT, ()=> {
-    console.log(`Server up and running on port ${PORT}`);
+    console.log(`Server is up and running on port ${PORT}`);
 })
