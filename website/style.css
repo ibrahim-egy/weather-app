@@ -6,27 +6,91 @@
     box-sizing: border-box;
 }
 
+:root {
+    --color-primary: #60acaf;
+    --gap: 3rem;
+}
+
+html {
+    font-size: 62.5%;
+}
+
 body{
     background: #fffff8;
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    background-image: 
+        linear-gradient(0deg, rgba(96, 172, 175, .8) , rgba(96, 172, 175, .8)), 
+        url('https://www.pngkey.com/png/detail/52-524681_weather-48-icons-sun-icon-transparent-background.png');
+    /* height:100vh; */
+
 }
 
 #app{
-    display: grid;
-    grid-auto-rows: minmax(0px, auto);
-    /* grid-template-columns:  */
-    height:100vh;
-    background-image: 
-        linear-gradient(to bottom left, rgba(96, 172, 175, .7) , rgba(96, 172, 175, .8)), 
-        url('https://www.pngkey.com/png/detail/52-524681_weather-48-icons-sun-icon-transparent-background.png');
+    margin: 10rem auto;
+    display: flex;
+    flex-direction: column;
     color: #f0d43a;
-    justify-content: center;
-    grid-gap: 1em;
-    font-size: 20px;
+    gap: var(--gap);
+    font-size: 2rem;
     font-family: 'Oswald', sans-serif;
+    align-items: center;
+    background-color: rgb(78, 139, 141, .7);
+    border-radius: 25px;
+    max-width: 60%;
+    padding-bottom: 2rem;
 }
 
 .holder{
+
+}
+::selection {
+    color: white;
+    background-color: #96dfe3;
+}
+
+.headline {
+    font-size: 6rem;
+}
+
+.zip {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.feel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#feelings {
+    margin-bottom: var(--gap);
+}
+#entryHolder{
+    display: flex;
+    justify-content: center;
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#date{
+    font-size: 2rem;
+}
+
+#temp{
+    font-size: 4rem;
+    order: -1;
+    padding: 2rem;
+    margin-right: 4rem;
+}
+
+#content{
 
 }
 
@@ -35,28 +99,8 @@ body{
     border-radius: 10px;
     padding: 1em;
 }
-
-#entryHolder{
-
-}
-
-#date{
-
-}
-
-#temp{
-
-}
-
-#content{
-
-}
-
-.headline {
-
-}
 .title{
-
+    
 }
 
 /*  Basic Styling To Override Default For Basic HTML Elements */
@@ -70,7 +114,7 @@ input{
     height: 60px;
     width: 320px;
     background:#CBEDD5;
-    color: #f0d43a;
+    color: var(--color-primary);
     font-size: 20px;
     font-family: 'Oswald', sans-serif;
     border: none;
@@ -79,8 +123,6 @@ input{
 }
 
 button{
-    width: 400px;
-    height: 100px;
     background: #3b4a6b;
     color: #f0d43a;
     font-size: 26px;
@@ -88,14 +130,12 @@ button{
     border: none;
     box-shadow: 2px 4px 5px #444;
     border-radius: 10px;
-}
-h1{
-    font-size: 36px;
+    padding: 2rem 4rem;
 }
 
 textarea{
     background:#CBEDD5;
-    color: #f0d43a;
+    color: var(--color-primary);
     font-size: 20px;
     font-family: 'Oswald', sans-serif;
     border-radius: 10px;
@@ -110,19 +150,19 @@ button:focus {
 }
 /* Style for Placeholder Text*/
 ::placeholder { /* Firefox, Chrome, Opera */ 
-    color: #f0d43a; 
+    color: var(--color-primary);
     font-family: 'Oswald', sans-serif;
 
 } 
   
 :-ms-input-placeholder { /* Internet Explorer 10-11 */ 
-    color: #f0d43a; 
+    color: var(--color-primary);
     font-family: 'Oswald', sans-serif;
 
 } 
   
 ::-ms-input-placeholder { /* Microsoft Edge */ 
-    color: #f0d43a; 
+    color: var(--color-primary);
     font-family: 'Oswald', sans-serif;
 
 } 

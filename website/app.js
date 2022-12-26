@@ -45,9 +45,9 @@ const updateUI = async () => {
     const response = await fetch('/getAllData')
     const info = await response.json();
     try {
-        document.getElementById('temp').innerHTML = Math.round(info.temperature)+ ' degrees';
-        document.getElementById('content').innerHTML = info.feelings;
-        document.getElementById('date').innerHTML = info.date;
+        document.getElementById('temp').innerHTML = `${Math.round(info.temperature)}&#8457;`;
+        document.getElementById('content').innerHTML = `${info.feelings}`;
+        document.getElementById('date').innerHTML = `${info.date}`;
     }
     catch (error) {
         console.log(`error: ${error}`);
