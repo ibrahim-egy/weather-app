@@ -1,10 +1,16 @@
-# Weather-Journal App Project
+# Weather Journal App :cloud_with_rain:
 
-## Overview
-This project requires you to create an asynchronous web app that uses Web API and user data to dynamically update the UI. 
 
-## Instructions
-This will require modifying the `server.js` file and the `website/app.js` file. You can see `index.html` for element references, and once you are finished with the project steps, you can use `style.css` to style your application to customized perfection.
+### Project Objective
 
-## Extras
-If you are interested in testing your code as you go, you can use `tests.js` as a template for writing and running some basic tests for your code.
+This project was about creating a web app that uses the OpenWeatherMap API to fetch weather data based on the user's Zip code and dynamically update the user interface using chain multiple promises, this project required working with Web APIs and asynchronous javascript.
+
+
+#### Used Tech
+- HTML 
+- CSS
+- Javascript (Vanilla)
+- Node (server side)
+
+### Demo
+![Demo](./Demo.gif)
